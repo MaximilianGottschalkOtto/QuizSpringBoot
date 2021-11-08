@@ -1,10 +1,9 @@
-package com.osp.QuizSpringBoot.Controller;
+package com.osp.quizspringboot.controller;
 
 
-import com.osp.QuizSpringBoot.Service.Question;
-import com.osp.QuizSpringBoot.Service.QuizService;
+import com.osp.quizspringboot.service.Question;
+import com.osp.quizspringboot.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +17,15 @@ public class Controller {
     @Autowired
     private QuizService service;
 
+
     @GetMapping("/begin")
     public String begin(){
         return service.beginQuiz();
     }
 
     @GetMapping("/question")
-    public Question question(){
-        return service.questions();
+    public String question(){
+        return service.question();
     }
 
     @GetMapping("/question/{answer}")

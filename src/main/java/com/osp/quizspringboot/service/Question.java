@@ -1,4 +1,6 @@
-package com.osp.QuizSpringBoot.Service;
+package com.osp.quizspringboot.service;
+
+
 
 public class Question {
 

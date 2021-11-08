@@ -1,4 +1,4 @@
-package com.osp.QuizSpringBoot;
+package com.osp.quizspringboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

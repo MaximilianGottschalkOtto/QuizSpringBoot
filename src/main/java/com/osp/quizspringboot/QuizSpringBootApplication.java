@@ -1,4 +1,4 @@
-package com.osp.QuizSpringBoot;
+package com.osp.quizspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
