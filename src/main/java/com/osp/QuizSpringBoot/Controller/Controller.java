@@ -1,6 +1,7 @@
 package com.osp.QuizSpringBoot.Controller;
 
 
+import com.osp.QuizSpringBoot.Service.Question;
 import com.osp.QuizSpringBoot.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class Controller {
     }
 
     @GetMapping("/question")
-    public String question(){
+    public Question question(){
         return service.questions();
     }
 

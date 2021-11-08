@@ -1,51 +1,51 @@
 package com.osp.QuizSpringBoot.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 @Service
 public class QuizService {
-    List<String> list = new ArrayList<>();
-    List<String> answer = new ArrayList<>();
-    List<String> solution = new ArrayList<>();
-    int count = 0;
-    int score = 0;
+    Question question = new Question("Wie viele Einkerbungen hat ein Golfball?", "a) 336 \n b) 423 \n c) 672", "a");
+    Question question1 = new Question("Wie viele Weihnachtsbäume werden in Deutschland pro Jahr verkauft?", "a) 30 MIO \n b) 25 MIO \n c) 13 MIO", "a");;
+    Question question2 = new Question("Wie viele Buchstaben hat das hawaiianische Alphabet?", "a) 10 \n b) 14 \n c) 12", "c");
+    int i = 0;
 
-
-
-    List<String> arrayList = new ArrayList<>();
 
     public String beginQuiz() {
         return "Quiz hat gestartet";
     }
 
-    public String questions() {
-        list.add("Wie viele Weihnachtsbäume werden in Deutschland pro Jahr verkauft?");
-        answer.add("a) 30 MIO \n b) 25 MIO \n c) 13 MIO");
-        solution.add("a");
-
-        list.add("Wie viele Buchstaben hat das hawaiianische Alphabet?");
-        answer.add("a) 10 \n b) 14 \n c) 12");
-        solution.add("c");
-
-        list.add("Wie viele Einkerbungen hat ein Golfball?");
-        answer.add("a) 336 \n b) 423 \n c) 672");
-        solution.add("a");
-
-        return "Frage: " + list.get(count) + " \n Antwortmöglichkeiten: " + answer.get(count);
+    public Question questions() {
+        if (i == 0){
+            return question;
+        }else if(i == 1){
+            return question1;
+        }else {
+            return question2;
+        }
     }
 
     public String answer(String param){
-        if (param.equals(solution.get(count))){
-            count++;
-            score = score + 5;
-            return "Du hast die Frage richtig beantwortet! Dein Score: " + score + ".";
-        }else{
-            count++;
-            return "Leider falsch, versuche es doch mit der nächsten Frage. Dein Score: " + score + ".";
+        if (i == 0 && param.equals(question.getSolution())){
+            i++;
+            return "Richtig";
+        }else if(i == 0){
+            i++;
+            return "Falsch";
+        }
+        if (i == 1 && param.equals(question1.getSolution())){
+            i++;
+            return "Richtig";
+        }else if(i == 1){
+            i++;
+            return "Falsch";
+        }
+        if (i == 2 && param.equals(question2.getSolution())){
+            return "Richtig & vorbei";
+        }else {
+            return "Falsch & vorbei";
         }
     }
 
